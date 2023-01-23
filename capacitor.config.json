@@ -1,0 +1,6 @@
+{
+  "appId": "com.sindresau",
+  "appName": "countdown-app",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}

@@ -12,6 +12,7 @@
   "author": "sindresau",
   "license": "ISC",
   "devDependencies": {
+    "@capacitor/cli": "^4.6.2",
     "@electron-forge/cli": "^6.0.4",
     "@electron-forge/maker-deb": "^6.0.4",
     "@electron-forge/maker-rpm": "^6.0.4",
@@ -20,6 +21,9 @@
     "electron": "^22.0.3"
   },
   "dependencies": {
+    "@capacitor/android": "^4.6.2",
+    "@capacitor/core": "^4.6.2",
+    "@capacitor/ios": "^4.6.2",
     "electron-squirrel-startup": "^1.0.0"
   }
 }
