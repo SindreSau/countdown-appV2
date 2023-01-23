@@ -1,0 +1,147 @@
+:root {
+  --clr-bg: #121212;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Play', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--clr-bg);
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  padding-bottom: 10rem;
+}
+
+#app {
+  max-width: 1000px;
+  max-height: 1000px;
+}
+
+#play-button {
+  width: 60vw;
+  height: 60vw;
+  max-height: 400px;
+  max-width: 400px;
+}
+
+/* Sets the containers height and width */
+.base-timer {
+  position: relative;
+  height: 100vw;
+  width: 100vw;
+  max-height: 700px;
+  max-width: 700px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 4px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 4px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  stroke: #62e7b4;
+}
+
+.red {
+  stroke: #630000;
+}
+
+.base-timer__svg {
+  /* Flips the svg and makes the animation to move left-to-right */
+  transform: scaleX(-1);
+}
+
+#time-left {
+  position: absolute;
+  height: 100vw;
+  width: 100vw;
+  max-height: 700px;
+  max-width: 700px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15vw;
+}
+
+#total-time {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 30vw;
+  width: 100vw;
+  max-height: 300px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vw;
+}
+
+.total-time-output {
+  display: flex;
+
+}
+
+@media (min-width: 768px) {
+  #app {
+    max-width: 700px;
+  }
+
+  .base-timer {
+    height: 80vw;
+    width: 80vw;
+    max-height: 600px;
+    max-width: 600px;
+  }
+
+  #time-left {
+    height: 80vw;
+    width: 80vw;
+    max-height: 600px;
+    max-width: 600px;
+
+    font-size: 5rem;
+  }
+
+    #total-time {
+      height: 250px;
+      width: 100vw;
+      max-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+    }
+}
