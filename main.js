@@ -6,13 +6,15 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 350,
     height: 700,
+    resizable: false,
+    fullscreen: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false
     }
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('www/index.html')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

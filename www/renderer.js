@@ -4,10 +4,12 @@ let audioWork = new Audio('assets/start-working.mp3');
 const root = document.getElementById("app");
 const playButton = document.getElementById("play-button");
 const FULL_DASH_ARRAY = 283;
-const sound1 = null;
-const sound2 = null;
 const workTime = 45 * 60;
 const brakeTime = 15 * 60;
+
+const notificationTitle = 'Hey';
+const notificationBodyWork = 'It´s time to start working!';
+const notificationBodyBrake = 'It´s time to take a brake and make Sindre some coffee!';
 
 playButton.addEventListener("click", () => {
   const timer = new Timer(root);
@@ -54,27 +56,28 @@ class Timer {
 
   start() {
     this.interval = setInterval(() => {
+      this.counter++;
       this.remainingSeconds--;
       this.totalTimeInSeconds++;
       this.updateInterfaceTime();
       this.setCircleDashArray();
       if (this.remainingSeconds === 0) {
-        console.log("stopped");
         if (this.counter % 2 == 0) {
           this.isBrake = true;
         } else {
           this.isBrake = false;
         }
-        this.counter++;
         if (this.isBrake) {
           this.startingSeconds = brakeTime;
-          this.remainingSeconds = brakeTIme;
+          this.remainingSeconds = brakeTime;
           this.el.progress.classList.add("red")
+          new Notification(notificationTitle, { body: notificationBodyBrake })
           audioBrake.play()
         } else {
           this.startingSeconds = workTime;
           this.remainingSeconds = workTime;
           this.el.progress.classList.remove("red")
+          new Notification(notificationTitle, { body: notificationBodyWork })
           audioWork.play()
         }
       }
