@@ -1,15 +1,20 @@
+@font-face {
+  font-family: 'play-regular';
+  src: url('assets/Play-Regular.ttf');
+}
+
 :root {
-  --clr-bg: #121212;
+  --clr-bg: #1212128a;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'play-regular';
 }
 
 body {
-  font-family: 'Play', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +22,16 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-color: var(--clr-bg);
+  backdrop-filter: blur(2em);
+  overflow: hidden;
   color: white;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .body {
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(2em);
+  }
 }
 
 h1 {
@@ -26,9 +40,82 @@ h1 {
   padding-bottom: 10rem;
 }
 
+.draggable-area {
+  -webkit-app-region: drag;
+}
+
+.titlebar {
+  cursor: grab;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  padding: .1rem .5rem;
+  align-items: center;
+
+  background-color: #121212;
+  color: #62e7b49a;
+
+  box-shadow: 0 0px 15px 15px #121212;
+}
+
+.titlebar p {
+  cursor: grab;
+  font-size: 1.5rem;
+}
+
+.info-section {
+  color: #bbb;
+  position: absolute;
+  bottom: 10px;
+  padding: .2rem 1.5rem;
+  text-align: center;
+}
+
 #app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 1000px;
   max-height: 1000px;
+}
+
+.remove-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  max-height: 1000px;
+}
+
+form {
+  margin: 2.5rem;
+  position: absolute;
+  top: 4rem;
+  text-align: center;
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form label {
+  color: #d0cfcf;
+  font-size: .9rem;
+}
+
+input {
+  width: 100%;
+  font-size: 1.3rem;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  padding: .2rem;
 }
 
 #play-button {
@@ -106,11 +193,11 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 10vw;
+  color: #ccc;
 }
 
 .total-time-output {
   display: flex;
-
 }
 
 @media (min-width: 768px) {
@@ -134,14 +221,22 @@ h1 {
     font-size: 5rem;
   }
 
-    #total-time {
-      height: 250px;
-      width: 100vw;
-      max-height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 3rem;
-    }
+  #total-time {
+    height: 250px;
+    width: 100vw;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+  }
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
