@@ -56,7 +56,6 @@ class Timer {
 
   start() {
     this.interval = setInterval(() => {
-      this.counter++;
       this.remainingSeconds--;
       this.totalTimeInSeconds++;
       this.updateInterfaceTime();
@@ -67,6 +66,7 @@ class Timer {
         } else {
           this.isBrake = false;
         }
+        this.counter++;
         if (this.isBrake) {
           this.startingSeconds = brakeTime;
           this.remainingSeconds = brakeTime;
