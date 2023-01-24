@@ -8,8 +8,7 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       platforms: ['win32'],
       config: {
-        name: 'Work your ass off',
-        exe: 'WYAOff.exe',
+        name: 'Work_your_ass_off',
         authors: 'Sindre',
         description: 'Work your ass off and drink more coffee',
         certificateFile: './cert.pfx',

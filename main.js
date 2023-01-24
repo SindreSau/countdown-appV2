@@ -13,7 +13,7 @@ const createWindow = () => {
       webSecurity: false
     }
   })
-
+  mainWindow.setMenu(null);
   mainWindow.loadFile('www/index.html')
 
   // Open the DevTools.
