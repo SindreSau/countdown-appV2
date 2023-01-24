@@ -8,11 +8,19 @@ const createWindow = () => {
     height: 700,
     resizable: false,
     fullscreen: false,
+    autoHideMenuBar: true,
+    fullscreenable: false,
+    hasShadow: true,
+    transparent: true,
+    frame: false,
     webPreferences: {
+      experimentalFeatures: true,
       preload: path.join(__dirname, 'preload.js'),
       webSecurity: false
     }
   })
+
+  mainWindow.removeMenu();
 
   mainWindow.loadFile('www/index.html')
 
@@ -24,7 +32,6 @@ app.whenReady().then(() => {
   createWindow()
 
   app.on('activate', () => {
-
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })

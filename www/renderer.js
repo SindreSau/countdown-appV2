@@ -2,18 +2,43 @@ let audioBrake = new Audio('assets/brake-time.mp3');
 let audioWork = new Audio('assets/start-working.mp3');
 
 const root = document.getElementById("app");
+const inputField = document.getElementById("input-time");
 const playButton = document.getElementById("play-button");
+const infoSection = document.querySelector('.info-section');
+const removeMe = document.querySelectorAll('.remove-me');
 const FULL_DASH_ARRAY = 283;
-const workTime = 45 * 60;
-const brakeTime = 15 * 60;
-
 const notificationTitle = 'Hey';
 const notificationBodyWork = 'It´s time to start working!';
 const notificationBodyBrake = 'It´s time to take a brake and make Sindre some coffee!';
+let workTime = 45 * 60;
+const brakeTime = 15 * 60;
+
+inputField.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    playButton.click();
+  }
+})
+inputField.addEventListener('submit', (e) => {
+  e.preventDefault();
+  playButton.click();
+})
 
 playButton.addEventListener("click", () => {
+  if(inputField.value != "") {
+    let minutesSeconds = inputField.value;
+    let minutes = parseInt(minutesSeconds.split(":")[0]);
+    let seconds = parseInt(minutesSeconds.split(":")[1]);
+    let totalSeconds = seconds + (minutes * 60);
+    workTime = totalSeconds;
+  }
+  removeMe.forEach(item => {
+    item.remove();
+  })
   const timer = new Timer(root);
 })
+
+
 
 class Timer {
   constructor(root) {
@@ -74,8 +99,8 @@ class Timer {
           new Notification(notificationTitle, { body: notificationBodyBrake })
           audioBrake.play()
         } else {
-          this.startingSeconds = workTime;
-          this.remainingSeconds = workTime;
+          this.startingSeconds = 45 * 60;
+          this.remainingSeconds = 45 * 60;
           this.el.progress.classList.remove("red")
           new Notification(notificationTitle, { body: notificationBodyWork })
           audioWork.play()
