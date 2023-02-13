@@ -1,5 +1,5 @@
-let audioBrake = new Audio('assets/brake-time.mp3');
-let audioWork = new Audio('assets/start-working.mp3');
+const audioBrake = new Audio('assets/brake-time.mp3');
+const audioWork = new Audio('assets/start-working.mp3');
 
 const root = document.getElementById("app");
 const inputField = document.getElementById("input-time");
@@ -53,7 +53,7 @@ class Timer {
     this.interval = null;
     this.startingSeconds = workTime;
     this.remainingSeconds = this.startingSeconds;
-    this.totalTimeInSeconds = 0;
+    this.totalTimeInSeconds = (60 * 59) + (60 * 59) + 2;
     this.counter = 0;
     this.isBrake = false;
     this.updateInterfaceTime();
@@ -68,11 +68,12 @@ class Timer {
     this.el.seconds.textContent = seconds.toString().padStart(2, "0");
 
     const totalSeconds = this.totalTimeInSeconds % 60;
-    const totalMinutes = Math.floor(this.totalTimeInSeconds / 60)
-    const totalHours = Math.floor(totalMinutes / 60)
+    let totalMinutes = Math.floor(this.totalTimeInSeconds / 60);
+    let outMinutes = totalMinutes % 60;
+    let totalHours = Math.floor(totalMinutes / 60);
 
     this.el.totalHours.textContent = totalHours.toString().padStart(2, "0")
-    this.el.totalMinutes.textContent = totalMinutes.toString().padStart(2, "0")
+    this.el.totalMinutes.textContent = outMinutes.toString().padStart(2, "0")
     this.el.totalSeconds.textContent = totalSeconds.toString().padStart(2, "0")
   }
 
