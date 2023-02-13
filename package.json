@@ -24,6 +24,8 @@
     "@capacitor/android": "^4.6.2",
     "@capacitor/core": "^4.6.2",
     "@capacitor/ios": "^4.6.2",
+    "@capacitor/local-notifications": "^4.1.4",
+    "electrolytic": "^0.1.1",
     "electron-squirrel-startup": "^1.0.0"
   }
 }

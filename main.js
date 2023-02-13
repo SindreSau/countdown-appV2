@@ -4,19 +4,14 @@ if (require('electron-squirrel-startup')) app.quit();
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 350,
-    height: 700,
-    resizable: false,
-    fullscreen: false,
-    autoHideMenuBar: true,
-    fullscreenable: false,
-    hasShadow: true,
-    transparent: true,
-    frame: false,
+    width: 400,
+    height: 600,
+    minWidth: 300,
+    minHeight: 450,
+    maxWidth: 600,
+    maxHeight: 800,
     webPreferences: {
-      experimentalFeatures: true,
       preload: path.join(__dirname, 'preload.js'),
-      webSecurity: false
     }
   })
 

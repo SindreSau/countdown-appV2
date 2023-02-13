@@ -4,7 +4,7 @@
 }
 
 :root {
-  --clr-bg: #1212128a;
+  --clr-bg: #121212;
 }
 
 * {
@@ -68,7 +68,6 @@ h1 {
 
 .info-section {
   color: #bbb;
-  position: absolute;
   bottom: 10px;
   padding: .2rem 1.5rem;
   text-align: center;
@@ -94,7 +93,6 @@ h1 {
 
 form {
   margin: 2.5rem;
-  position: absolute;
   top: 4rem;
   text-align: center;
   display: flex;
@@ -119,19 +117,22 @@ input {
 }
 
 #play-button {
-  width: 60vw;
-  height: 60vw;
+  width: calc(30vw + 25vh);
   max-height: 400px;
   max-width: 400px;
 }
 
 /* Sets the containers height and width */
 .base-timer {
+  margin-top: 60px;
+  margin-bottom: 20px;
   position: relative;
-  height: 100vw;
-  width: 100vw;
-  max-height: 700px;
-  max-width: 700px;
+  height: calc(50vh + 25vw);
+  width: calc(50vh + 25vw);
+  max-height: 60vh;
+  max-width: 60vh;
+
+  border: 1px solid red;
 }
 
 /* Removes SVG styling that would hide the time label */
@@ -166,33 +167,23 @@ input {
 
 #time-left {
   position: absolute;
-  height: 100vw;
-  width: 100vw;
-  max-height: 700px;
-  max-width: 700px;
-  top: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-  font-size: 15vw;
+  font-size: calc(8vw + 8vh);
 }
 
 #total-time {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  height: 30vw;
+  bottom: 2vh;
   width: 100vw;
-  max-height: 300px;
-  max-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 10vw;
+  font-size: calc(2vw + 8vh);
   color: #ccc;
 }
 

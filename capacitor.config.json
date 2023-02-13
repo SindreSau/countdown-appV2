@@ -2,5 +2,12 @@
   "appId": "com.sindresau",
   "appName": "countdown-app",
   "webDir": "www",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+  "LocalNotifications": {
+    "smallIcon": "www/assets/64x64.png",
+    "iconColor": "#FFFFFF",
+    "sound": "www/assets/brake-time.mp3"
+  }
+  }
 }
