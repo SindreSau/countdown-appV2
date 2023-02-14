@@ -53,7 +53,7 @@ class Timer {
     this.interval = null;
     this.startingSeconds = workTime;
     this.remainingSeconds = this.startingSeconds;
-    this.totalTimeInSeconds = (60 * 59) + (60 * 59) + 2;
+    this.totalTimeInSeconds = 0;
     this.counter = 0;
     this.isBrake = false;
     this.updateInterfaceTime();

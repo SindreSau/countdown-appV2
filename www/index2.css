@@ -15,30 +15,13 @@
 }
 
 body {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100vw; */
   background-color: var(--clr-bg);
   overflow: hidden;
   color: white;
   display: flex;
-  justify-content: center;
-}
-
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .body {
-    -webkit-backdrop-filter: blur(2em);
-    backdrop-filter: blur(2em);
-  }
-}
-
-h1 {
-  font-size: 4rem;
-  text-align: center;
-  padding-bottom: 10rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .draggable-area {
@@ -47,7 +30,6 @@ h1 {
 
 .titlebar {
   cursor: grab;
-  position: absolute;
   top: 0;
   width: 100vw;
   height: 20px;
@@ -55,6 +37,7 @@ h1 {
   justify-content: center;
   padding-block: 15px;
   align-items: center;
+  font-size: 1.5rem;
 
   background-color: #121212;
   color: #62e7b49a;
@@ -62,46 +45,23 @@ h1 {
   box-shadow: 0 0px 15px 15px #121212;
 }
 
-.titlebar p {
-  cursor: grab;
-  font-size: 1.5rem;
-}
-
-.info-section {
-  /* color: #bbb;
-  bottom: 10px;
-  padding: .2rem 1.5rem;
-  text-align: center; */
-}
-
-#app {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  max-height: 1000px; */
+.remove-me {
   display: flex;
-  padding-top: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid yellow; */
   position: relative;
 }
 
-.remove-me {
-  display: grid;
-  grid-template-rows: 40px calc(1fr - 60px);
-  gap: 10px;
-}
-
 form {
-  margin: 2.5rem;
-  top: 4rem;
+  margin: 5vh;
   text-align: center;
   display: flex;
   gap: .5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
 }
 
 form label {
@@ -111,7 +71,7 @@ form label {
 
 input {
   width: 100%;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-align: center;
   border: none;
   border-radius: 2rem;
@@ -119,24 +79,34 @@ input {
 }
 
 #play-button {
-  /* min-height: 80px;
-  min-width: 80px;
+  /* border: 1px solid red; */
+  min-height: 250px;
+  min-width: 250px;
   height: 100%;
-  width: 100%;
-  aspect-ratio: 1/1;
-  max-width: 100%;
-  max-height: 100%;
-  border: 1px solid red; */
-  border: 1px solid red;
+  flex-grow: 2;
+}
+
+#app {
+  position: relative;
+  height: calc(100vh - 52px);
+  width: 98vw;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Sets the containers height and width */
 .base-timer {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  position: relative;
   height: calc(50vh + 25vw);
-  width: calc(50vh + 25vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 1px solid green; */
+}
+
+.base-timer > *, .time-left {
+  height: 50vh;
 }
 
 /* Removes SVG styling that would hide the time label */
@@ -177,7 +147,7 @@ input {
   top: 50%;
   transform: translate(-50%, -50%);
 
-  font-size: calc(8vw + 8vh);
+  font-size: calc(5vw + 5vh);
 }
 
 #total-time {
@@ -192,10 +162,10 @@ input {
 }
 
 .total-time-output {
-  display: flex;
+  /* display: flex; */
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   #app {
     max-width: 700px;
   }
@@ -226,7 +196,7 @@ input {
     align-items: center;
     font-size: 3rem;
   }
-}
+} */
 
 .unselectable {
   -webkit-user-select: none;
